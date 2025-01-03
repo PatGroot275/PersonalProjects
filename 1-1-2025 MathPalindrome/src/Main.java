@@ -47,15 +47,16 @@ public class Main {
         }
         fileWriter.close();
 
-        
     }
 
     public static void main(String[] args) throws Throwable {
-        /* testOnePally(BigInteger.valueOf(196), 1000);
-        System.exit(0); */
+        /*
+         * testOnePally(BigInteger.valueOf(196), 1000);
+         * System.exit(0);
+         */
 
         getData();
-        int limit = 1000000; // 1000000
+        int limit = 100000; // 1 hundred thousand
         int currentID = pallys.size() + 1; // change this to be the highest point of pallys
         while (currentID <= limit) {
 
@@ -64,9 +65,7 @@ public class Main {
             boolean innerExit = false;
 
             while (!innerExit) {
-                // Checker for the infinite ones
-                if (((result.subtract(BigInteger.valueOf(196))).mod(BigInteger.valueOf(99)).equals(BigInteger.ZERO)
-                        && iterations == 0) || (result.equals(BigInteger.valueOf(196)) && iterations == 0)) {
+                if (iterations > 1000) {
                     result = BigInteger.valueOf(0);
                     innerExit = true;
                 }
