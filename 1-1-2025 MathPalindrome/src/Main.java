@@ -80,17 +80,7 @@ public class Main {
 
             pallys.add(new Pally(currentID, iterations, result));
             currentID++;
-            System.out.println(currentID);
         }
         setData();
     }
-
-    // List of FAILED
-    /*
-     * 196
-     * 295
-     * 394
-     * 493
-     * 592
-     */
 }
