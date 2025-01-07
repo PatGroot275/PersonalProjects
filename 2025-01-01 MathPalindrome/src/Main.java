@@ -1,3 +1,11 @@
+/* 
+ * The following code is designed to find mathematic palindromes, ex: 121 or 876678
+ * If the number is not a palidrome, the reverse of the number will be added to the number until it is a palindrome
+ * There are certain numbers that cannot be 'solved' to a palindrome that this program has found, ex: 196, 295, 394
+ * This goes up to 100,000 
+ * The data has been saved to a separate file 
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -49,15 +57,33 @@ public class Main {
 
     }
 
-    public static void main(String[] args) throws Throwable {
-        /*
-         * testOnePally(BigInteger.valueOf(196), 1000);
-         * System.exit(0);
+    public static void extractNullPallys() throws IOException {
+        /* 
+         * pull data
+         * for pallys in pally
+         * look for 1001 iterations, then add it to the new csv file
          */
+        getData();
+
+        File file = new File("lib\\nullPallys.csv");
+        FileWriter fileWriter = new FileWriter(file);
+
+        for (Pally pally : pallys) {
+            if (pally.getCount() == 1001) {
+                fileWriter.write(pally.getId() + "\n");
+            }
+        }
+        fileWriter.close();
+
+    }
+
+    public static void main(String[] args) throws Throwable {
+        //testOnePally(BigInteger.valueOf(196), 100);
+        //extractNullPallys();
 
         getData();
-        int limit = 100000; // 1 hundred thousand
-        int currentID = pallys.size() + 1; // change this to be the highest point of pallys
+        int limit = 100000;
+        int currentID = pallys.size() + 1; 
         while (currentID <= limit) {
 
             int iterations = 0;
