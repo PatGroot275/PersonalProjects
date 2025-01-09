@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+//These are Leet Code Problems, therefore LCP 
+//They are done based on the calendar provided on the website 
+
 class Solution {
     public static void main(String[] args) {
         String[] words = { "mass", "as", "hero", "superhero" };
